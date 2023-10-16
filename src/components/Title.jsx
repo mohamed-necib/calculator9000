@@ -1,8 +1,7 @@
-import React from 'react'
 
 const Title = () => {
   return (
-    <h1>
+    <h1 className="title">
       Calculator9000
     </h1>
   )
