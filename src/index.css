@@ -9,10 +9,10 @@
 }
 
 :root {
-  --background: #acebf2;
+  --screen-color: #d4ecef;
   --text-color: #2b2d42;
   --wrapper-color: #f27405;
-  --screen-color: #04bfbf;
+  --background: #04bfbf;
   --operator-bg: #f2b950;
   --shadow: 0 9px 15px -3px rgba(0, 0, 0, 0.636) inset 4px 4px 15px 0px #000000;
 }
@@ -48,11 +48,12 @@ body {
 /* Ecran de la calculatrice */
 .screen {
   background: var(--screen-color);
-  color: #e9f0f4;
+  color: var(--text-color);
   height: 5rem;
   margin-bottom: 2rem;
+  padding: 0.3rem;
   border-radius: 0.5rem;
-  text-align: end;
+  
 }
 
 .button-container {
