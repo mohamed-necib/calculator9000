@@ -15,7 +15,7 @@ const buttonValues = [
 
 function App() {
   return (
-    <>
+    <CalcProvider>
       <Calculator>
         <Title />
         <Screen />
@@ -25,7 +25,7 @@ function App() {
           ))}
         </ButtonContainer>
       </Calculator>
-    </>
+    </CalcProvider>
   );
 }
 

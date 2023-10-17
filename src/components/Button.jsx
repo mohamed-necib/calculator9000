@@ -1,17 +1,28 @@
+const getStyle = (btn) => {
 
-const getStyle = btn => {
   const className = {
     "=": "equal",
     "+": "operator",
     "-": "operator",
-    "x": "operator",
+    x: "operator",
     "/": "operator",
-  }
-  return className[btn.value]
-}
+  };
+  return className[btn.value];
+};
 
 const Button = ({ value }) => {
-  return <button className={`${getStyle({value})} button`}>{value}</button>;
+  const handlebtnClick = () => {
+    
+    const results = {
+      ".": commaClick,
+    } 
+    return results[value];
+    };
+  return (
+    <button onClick={handlebtnClick} className={`${getStyle({ value })} button`}>
+      {value}
+    </button>
+  );
 };
 
 export default Button;
