@@ -49,9 +49,10 @@ body {
 .screen {
   background: var(--screen-color);
   color: #e9f0f4;
-  height: 4rem;
-  margin-bottom: 4rem;
+  height: 5rem;
+  margin-bottom: 2rem;
   border-radius: 0.5rem;
+  text-align: end;
 }
 
 .button-container {
