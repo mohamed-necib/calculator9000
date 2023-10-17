@@ -1,8 +1,8 @@
 
-const BeautifulScreen = () => {
+const Screen = () => {
   return (
     <div className='screen'>012345</div>
   )
 }
 
-export default BeautifulScreen
+export default Screen

@@ -1,5 +1,5 @@
 /* Import Font */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap");
 
 /* CSS Reset */
 * {
@@ -8,9 +8,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* --primary-color: #2b2d42; */
+  /* --secondary-color: #f4f4f4; */
+  /* --tertiary-color: #e9f0f4; */
+  /* --quaternary-color: #dce4e9; */
+  /* --quinary-color: #f27405; */
+  /* --senary-color: #ff8c42; */
+  /* --septenary-color: #ffdcba; */
+  /* --octonary-color: #8d99ae; */
+  /* --nonary-color: #edf2f4; */
+  /* --denary-color: #e76f51; */
+  /* --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+  /* --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+  --background: #acebf2;
+  --text-color: #2b2d42;
+  --wrapper-color: #f27405;
+  --screen-color: #04bfbf;
+  --operator-bg: #f2b950;
+  --shadow: 0 9px 15px -3px rgba(0, 0, 0, 0.636) inset 4px 4px 15px 0px #000000;
+}
+
 body {
   height: 100vh;
-  background: #f4f4f4;
+  background: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,26 +40,63 @@ body {
 
 /* Titre du Projet */
 .title {
-  color: #2b2d42;
-  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 800;
+  font-size: 0.7rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: right;
 }
 
 /* Container de la Calculatrice */
 .wrapper {
-  background: #f6f8f9;
+  background: var(--wrapper-color);
   width: 20rem;
   padding: 2rem;
   margin-top: 4rem;
   border-radius: 1rem;
-  box-shadow: 0 9px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
 }
-
 
 /* Ecran de la calculatrice */
 .screen {
-  background: #f4f4f4;
+  background: var(--screen-color);
+  color: #e9f0f4;
   height: 4rem;
   margin-bottom: 4rem;
+  border-radius: 0.5rem;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.button {
+  background: #e9f0f4;
+  height: 3.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #2b2d42;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.button:hover {
+  border: 2px dotted var(--text-color);
+}
+
+.equal {
+  background: #99d959;
+  grid-column: 3 / 5;
+}
+
+.operator {
+  background: var(--operator-bg);
+  color: var(--text-color);
+
 }

@@ -1,8 +1,17 @@
 
-const Button = () => {
-  return (
-    <div>Button</div>
-  )
+const getStyle = btn => {
+  const className = {
+    "=": "equal",
+    "+": "operator",
+    "-": "operator",
+    "x": "operator",
+    "/": "operator",
+  }
+  return className[btn.value]
 }
 
-export default Button
+const Button = ({ value }) => {
+  return <button className={`${getStyle({value})} button`}>{value}</button>;
+};
+
+export default Button;
