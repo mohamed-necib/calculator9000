@@ -1,3 +1,4 @@
+import CalcProvider from "./context/CalculatorContext";
 import Screen from "./components/Screen";
 import Calculator from "./components/Calculator";
 import Title from "./components/Title";
@@ -14,7 +15,7 @@ const buttonValues = [
 
 function App() {
   return (
-    <div>
+    <>
       <Calculator>
         <Title />
         <Screen />
@@ -24,7 +25,7 @@ function App() {
           ))}
         </ButtonContainer>
       </Calculator>
-    </div>
+    </>
   );
 }
 
