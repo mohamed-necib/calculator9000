@@ -9,17 +9,88 @@
 }
 
 :root {
-  --screen-color: #d4ecef;
-  --text-color: #2b2d42;
-  --wrapper-color: #f27405;
-  --background: #04bfbf;
-  --operator-bg: #f2b950;
-  --shadow: 0 9px 15px -3px rgba(0, 0, 0, 0.636) inset 4px 4px 15px 0px #000000;
+  /* =================>Color Variables */
+
+  /* Dark Mode Colors Variables */
+  --dark-mode-bg: #282c2f;
+  --dark-mode-wrapper: #33393e;
+  --dark-mode-screen-text: #eee;
+  --dark-mode-button: #3b3537;
+  --dark-mode-operator: #fcbe4a;
+
+  /* Light Mode Colors Variables */
+  --light-mode-bg: #edf1f4;
+  --light-mode-screen: #ffffff;
+  --light-mode-button: ##f1b752;
+  --light-mode-operator: #fcbe4a;
+  --light-mode-equal: #e7bf62;
+  --light-mode-text: #5166d6;
+
+  /* =================>Shadows Variables */
+
+  /* Dark Shadows */
+  --dark-wrapper-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25),
+    -15px -15px 20px rgba(255, 255, 255, 0.1);
+  --dark-screen-shadow: inset 15px 15px 20px rgba(0, 0, 0, 0.5),
+    inset -15px -15px 20px rgba(255, 255, 255, 0.1);
+  --dark-button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.1);
+  --dark-operator-shadow: inset 5px 5px 10px rgba(252, 219, 69, 0.1),
+  inset -5px -5px 20px rgba(252, 219, 69, 0.1);
+  /* Light Shadows */
+  --light-wrapper-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+    -15px -15px 20px #fffb;
+  --light-screen-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 20px #fff;
+  --light-button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 20px #fff;
+  --light-operator-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff,
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* DARK MODE */
+
+.dark {
+  background: var(--dark-mode-bg);
+}
+
+.dark .wrapper {
+  background: var(--dark-mode-wrapper);
+  box-shadow: var(--dark-wrapper-shadow);
+}
+
+.dark .screen {
+  box-shadow: var(--dark-screen-shadow);
+  color: var(--dark-mode-screen-text);
+}
+
+.dark .button {
+  background: var(--dark-mode-wrapper);
+  color: var(--dark-mode-screen-text);
+  border: 2px solid #333;
+  box-shadow: var(--dark-button-shadow);
+}
+
+.dark .button:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 20px rgba(255, 255, 255, 0.1);
+  color: indianred;
+}
+
+.dark .equal,
+.dark .operator {
+  background: var(--dark-mode-operator);
+  color: var(--light-mode-text);
+}
+
+.dark .equal:active,
+.dark .operator:active {
+  box-shadow: var(--dark-operator-shadow);
+  color: indianred;
 }
 
 body {
   height: 100vh;
-  background: var(--background);
+  background: var(--light-mode-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +99,7 @@ body {
 
 /* Titre du Projet */
 .title {
-  color: var(--text-color);
+  color: var(--light-mode-text);
   font-weight: 800;
   font-size: 0.7rem;
   margin-bottom: 2rem;
@@ -37,23 +108,23 @@ body {
 
 /* Container de la Calculatrice */
 .wrapper {
-  background: var(--wrapper-color);
-  width: 20rem;
-  padding: 2rem;
+  width: 22rem;
+  padding: 1.3rem;
   margin-top: 4rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
+  border-radius: 1.3rem;
+  box-shadow: var(--light-wrapper-shadow);
 }
 
 /* Ecran de la calculatrice */
 .screen {
-  background: var(--screen-color);
-  color: var(--text-color);
+  color: var(--light-mode-text);
   height: 5rem;
   margin-bottom: 2rem;
-  padding: 0.3rem;
+  padding: 0 20px;
   border-radius: 0.5rem;
-  
+  box-shadow: var(--light-screen-shadow);
+  user-select: none;
+  text-align: end;
 }
 
 .button-container {
@@ -63,7 +134,6 @@ body {
 }
 
 .button {
-  background: #e9f0f4;
   height: 3.5rem;
   padding: 10px;
   border-radius: 10px;
@@ -71,22 +141,67 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #2b2d42;
+  color: var(--light-mode-text);
   border: none;
   font-size: 1.5rem;
+  box-shadow: var(--light-button-shadow);
+  color: #666;
+  border: 2px solid #edf1f4;
 }
 
-.button:hover {
-  border: 2px dotted var(--text-color);
+.button:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 20px #fff;
+  color: indianred;
 }
 
 .equal {
-  background: #99d959;
+  background: var(--light-mode-operator);
   grid-column: 3 / 5;
+  box-shadow: var(--light-operator-shadow);
 }
 
 .operator {
-  background: var(--operator-bg);
-  color: var(--text-color);
+  background: var(--light-mode-operator);
+  color: var(--light-mode-text);
+  box-shadow: var(--light-operator-shadow);
+}
 
+.equal:active,
+.operator:active {
+  box-shadow: inset 5px 5px 10px rgba(254, 190, 62, 0.1),
+    inset -5px -5px 20px rgba(254, 190, 62, 0.1);
+  color: indianred;
+}
+
+/* TOGGLE THEME BUTTON */
+.toggle-theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-mode-operator);
+  cursor: pointer;
+  box-shadow: var(--light-button-shadow);
+}
+
+.toggle-theme-btn span {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.toggle-theme-btn img {
+  margin-left: 18px;
+  width: 30px;
+}
+
+.dark .toggle-theme-btn {
+  background-color: var(--dark-mode-wrapper);
+  color: var(--light-mode-text);
+  box-shadow: var(--dark-button-shadow);
 }

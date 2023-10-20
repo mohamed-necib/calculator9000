@@ -4,6 +4,7 @@ import Calculator from "./components/Calculator";
 import Title from "./components/Title";
 import ButtonContainer from "./components/ButtonContainer";
 import Button from "./components/Button";
+import ToggleTheme from "./components/ToggleTheme";
 
 const buttonValues = [
   ["C", "+-", "%", "/"],
@@ -16,6 +17,7 @@ const buttonValues = [
 function App() {
   return (
     <CalcProvider>
+      <ToggleTheme/>
       <Calculator>
         <Title />
         <Screen />
