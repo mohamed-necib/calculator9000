@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { CalcContext } from "../context/CalculatorContext";
 
+
+
 const getStyle = (btn) => {
   const className = {
     "=": "equal",
