@@ -1,69 +1,207 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap");
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* =================>Color Variables */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Dark Mode Colors Variables */
+  --dark-mode-bg: #282c2f;
+  --dark-mode-wrapper: #33393e;
+  --dark-mode-screen-text: #eee;
+  --dark-mode-button: #3b3537;
+  --dark-mode-operator: #fcbe4a;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  /* Light Mode Colors Variables */
+  --light-mode-bg: #edf1f4;
+  --light-mode-screen: #ffffff;
+  --light-mode-button: ##f1b752;
+  --light-mode-operator: #fcbe4a;
+  --light-mode-equal: #e7bf62;
+  --light-mode-text: #5166d6;
+
+  /* =================>Shadows Variables */
+
+  /* Dark Shadows */
+  --dark-wrapper-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25),
+    -15px -15px 20px rgba(255, 255, 255, 0.1);
+  --dark-screen-shadow: inset 15px 15px 20px rgba(0, 0, 0, 0.5),
+    inset -15px -15px 20px rgba(255, 255, 255, 0.1);
+  --dark-button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.1);
+  --dark-operator-shadow: inset 5px 5px 10px rgba(252, 219, 69, 0.1),
+  inset -5px -5px 20px rgba(252, 219, 69, 0.1);
+  /* Light Shadows */
+  --light-wrapper-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+    -15px -15px 20px #fffb;
+  --light-screen-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 20px #fff;
+  --light-button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 20px #fff;
+  --light-operator-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff,
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* DARK MODE */
+
+.dark {
+  background: var(--dark-mode-bg);
 }
-a:hover {
-  color: #535bf2;
+
+.dark .wrapper {
+  background: var(--dark-mode-wrapper);
+  box-shadow: var(--dark-wrapper-shadow);
+}
+
+.dark .screen {
+  box-shadow: var(--dark-screen-shadow);
+  color: var(--dark-mode-screen-text);
+}
+
+.dark .button {
+  background: var(--dark-mode-wrapper);
+  color: var(--dark-mode-screen-text);
+  border: 2px solid #333;
+  box-shadow: var(--dark-button-shadow);
+}
+
+.dark .button:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 20px rgba(255, 255, 255, 0.1);
+  color: indianred;
+}
+
+.dark .equal,
+.dark .operator {
+  background: var(--dark-mode-operator);
+  color: var(--light-mode-text);
+}
+
+.dark .equal:active,
+.dark .operator:active {
+  box-shadow: var(--dark-operator-shadow);
+  color: indianred;
 }
 
 body {
-  margin: 0;
+  height: 100vh;
+  background: var(--light-mode-bg);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Titre du Projet */
+.title {
+  color: var(--light-mode-text);
+  font-weight: 800;
+  font-size: 0.7rem;
+  margin-bottom: 2rem;
+  text-align: right;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Container de la Calculatrice */
+.wrapper {
+  width: 22rem;
+  padding: 1.3rem;
+  margin-top: 4rem;
+  border-radius: 1.3rem;
+  box-shadow: var(--light-wrapper-shadow);
+}
+
+/* Ecran de la calculatrice */
+.screen {
+  color: var(--light-mode-text);
+  height: 5rem;
+  margin-bottom: 2rem;
+  padding: 0 20px;
+  border-radius: 0.5rem;
+  box-shadow: var(--light-screen-shadow);
+  user-select: none;
+  text-align: end;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.button {
+  height: 3.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--light-mode-text);
+  border: none;
+  font-size: 1.5rem;
+  box-shadow: var(--light-button-shadow);
+  color: #666;
+  border: 2px solid #edf1f4;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.button:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 20px #fff;
+  color: indianred;
+}
+
+.equal {
+  background: var(--light-mode-operator);
+  grid-column: 3 / 5;
+  box-shadow: var(--light-operator-shadow);
+}
+
+.operator {
+  background: var(--light-mode-operator);
+  color: var(--light-mode-text);
+  box-shadow: var(--light-operator-shadow);
+}
+
+.equal:active,
+.operator:active {
+  box-shadow: inset 5px 5px 10px rgba(254, 190, 62, 0.1),
+    inset -5px -5px 20px rgba(254, 190, 62, 0.1);
+  color: indianred;
+}
+
+/* TOGGLE THEME BUTTON */
+.toggle-theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-mode-operator);
+  cursor: pointer;
+  box-shadow: var(--light-button-shadow);
+}
+
+.toggle-theme-btn span {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.toggle-theme-btn img {
+  margin-left: 18px;
+  width: 30px;
+}
+
+.dark .toggle-theme-btn {
+  background-color: var(--dark-mode-wrapper);
+  color: var(--light-mode-text);
+  box-shadow: var(--dark-button-shadow);
 }
