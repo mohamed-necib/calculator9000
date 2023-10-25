@@ -4,6 +4,7 @@ import { CalcContext } from "../context/CalculatorContext";
 import toast, { Toaster } from "react-hot-toast";
 
 const Calculator = ({ children }) => {
+ 
   const { calc } = useContext(CalcContext);
   const notify = () =>
     toast("It's Over 9000 DUDE !", {
@@ -16,7 +17,7 @@ const Calculator = ({ children }) => {
       icon: "🚀",
     });
   useEffect(() => {
-    if (calc.result > 9000) {
+    if (calc.result > 9000 ) {
       notify();
     }
   }, [calc.result]);
